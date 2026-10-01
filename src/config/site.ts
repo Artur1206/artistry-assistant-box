@@ -14,5 +14,5 @@ export const CTA = { label: "Fale com um especialista", href: "#diagnostico" };
 
 export const SITE = {
   name: "Dimensional",
-  tagline: "Contabilidade & Gestão",
+  tagline: "Contabilidade & Gestão ",
 };

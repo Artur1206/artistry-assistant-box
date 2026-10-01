@@ -61,7 +61,7 @@
   --color-sidebar-ring: var(--sidebar-ring);
   --color-surface-dark: var(--surface-dark);
   --color-surface-dark-foreground: var(--surface-dark-foreground);
-  --font-sans: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Sans-serif moderna", ui-sans-serif, system-ui, sans-serif;
 }
 
 :root {

@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import { Container } from "./Container";
 
@@ -15,32 +15,61 @@ export function Section({
   id,
   tone = "light",
   className,
+  style,
   children,
 }: {
   id?: string;
   tone?: Tone;
   className?: string;
+  style?: CSSProperties;
   children: ReactNode;
 }) {
   return (
-    <section id={id} className={cn("scroll-mt-20 py-16 md:py-20 lg:py-24", toneClass[tone], className)}>
+    <section
+      id={id}
+      className={cn(
+        "scroll-mt-20 py-16 md:py-20 lg:py-24",
+        toneClass[tone],
+        className
+      )}
+      style={style}
+    >
       <Container>{children}</Container>
     </section>
   );
 }
 
 /** Temporary placeholder used until each section is developed. */
-export function SectionPlaceholder({ eyebrow, title, note }: { eyebrow: string; title: string; note: string }) {
+export function SectionPlaceholder({
+  eyebrow,
+  title,
+  note,
+  align = "center",
+  children,
+}: {
+  eyebrow: string;
+  title: ReactNode;
+  note: string;
+  align?: "center" | "left";
+  children?: ReactNode;
+}) {
   return (
-    <div className="flex flex-col items-center gap-3 text-center">
-      <span className="text-xs font-semibold uppercase tracking-widest text-primary">{eyebrow}</span>
-      <h2 className="max-w-2xl text-2xl font-bold md:text-3xl lg:text-4xl">{title}</h2>
-      <p className="max-w-xl text-sm opacity-70">{note}</p>
-      <div className="mt-6 grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {Array.from({ length: 4 }).map((_, i) => (
-          <div key={i} className="h-24 rounded-lg border border-dashed border-current/20" />
-        ))}
-      </div>
+    <div
+      className={cn(
+        "flex flex-col gap-3",
+        align === "left"
+          ? "items-start text-left"
+          : "items-center text-center"
+      )}
+    >
+      <span className="text-xs font-semibold uppercase tracking-widest text-primary">
+        {eyebrow}
+      </span>
+      <h2 className="text-2xl font-bold md:text-3xl lg:text-4xl">
+        {title}
+      </h2>
+      <p className="text-base">{note}</p>
+      {children}
     </div>
   );
 }
