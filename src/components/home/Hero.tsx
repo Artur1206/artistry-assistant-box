@@ -32,7 +32,7 @@ export function Hero() {
             </span>
           </>
         }
-        note={ <>Contabilidade, financeiro, custos precificação e estratégia para restaurantes <br /> que querem crescer com mais margem e controle.</>}
+        note="Contabilidade, financeiro, custos, precificação e estratégia para restaurantes que querem crescer com mais margem e controle."
         align="left"
       >
         <div className="mt-8 flex gap-4">
