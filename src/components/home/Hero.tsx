@@ -35,24 +35,25 @@ export function Hero() {
         note="Contabilidade, financeiro, custos, precificação e estratégia para restaurantes que querem crescer com mais margem e controle."
         align="left"
       >
-        <div className="mt-8 flex gap-4">
-          {/* Botão WhatsApp */}
-          <a
-            href="https://wa.me/55349?text=Quero%20um%20diagnostico%20do%20meu%20restaurante"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-[280px] rounded-lg bg-primary px-6 py-3 text-center font-semibold"
-          >
+          {/* Botões */}
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:gap-4">
+           {/* Botão WhatsApp */}
+            <a
+               href="https://wa.me/55349?text=Quero%20um%20diagnostico%20do%20meu%20restaurante"
+               target="_blank"
+                rel="noopener noreferrer"
+               className="w-full rounded-lg bg-primary px-6 py-3 text-center font-semibold sm:w-[280px]"
+             >
             Quero um diagnóstico do meu restaurante
-          </a>
+            </a>
 
-          {/* Botão para a próxima seção */}
-          <a
-            href="#desafios"
-            className="w-[180px] rounded-lg border border-primary px-6 py-3 text-center font-semibold"
-          >
-            Conheça nossa atuação
-          </a>
+            {/* Botão para a próxima seção */}
+            <a
+              href="#desafios"
+              className="w-full rounded-lg border border-primary px-6 py-3 text-center font-semibold sm:w-[180px]"
+            >
+             Conheça nossa atuação
+           </a>
         </div>
       </SectionPlaceholder>
       </div>

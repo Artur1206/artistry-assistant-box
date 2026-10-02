@@ -1,8 +1,5 @@
-import {
-  Mail,
-  MapPin,
-  MessageCircle,
-} from "lucide-react";
+import { Link } from "@tanstack/react-router";
+import {Mail, MapPin, MessageCircle,} from "lucide-react";
 import { Container } from "./Container";
 
 const solutions = [
@@ -14,13 +11,10 @@ const solutions = [
   "Soluções para Sócios",
 ];
 
-const restaurants = [
-  "Contabilidade para Restaurantes",
-  "BPO Financeiro",
-  "CMV e Ficha Técnica",
-  "Precificação",
-  "Marketplace",
-  "Regime Tributário",
+const segments = [
+  { label: "Restaurantes", to: "/restaurantes" },
+  { label: "Saúde", to: "/saude" },
+  { label: "Comércios", to: "/comercios" },
 ];
 
 const institutional = [
@@ -68,24 +62,24 @@ export function Footer() {
               ))}
             </nav>
           </div>
-
-          {/* Restaurantes */}
+            
+            {/* Segmentos */}
           <div>
             <h3 className="text-xs font-bold uppercase tracking-widest text-primary">
-              Restaurantes
+              Segmentos
             </h3>
 
             <nav className="mt-4 flex flex-col gap-2 text-sm opacity-80">
-              {restaurants.map((item) => (
-                <a
-                  key={item}
-                  href="#"
-                  className="transition-colors hover:text-primary"
+             {segments.map((segment) => (
+              <Link
+                key={segment.label}
+                to={segment.to}
+                className="transition-colors hover:text-primary"
                 >
-                  {item}
-                </a>
-              ))}
-            </nav>
+                  {segment.label}
+              </Link>
+                ))}
+              </nav>
           </div>
 
           {/* Institucional */}
