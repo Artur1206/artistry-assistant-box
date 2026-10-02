@@ -115,7 +115,7 @@ export function Footer() {
                 className="flex items-center gap-3 transition-colors hover:text-primary"
               >
                 <MessageCircle className="h-4 w-4 shrink-0" />
-                <span>(34) 99975-9899</span>
+                <span>(34) 9</span>
               </a>
 
               <a
@@ -123,7 +123,7 @@ export function Footer() {
                 className="flex items-center gap-3 transition-colors hover:text-primary"
               >
                 <Mail className="h-4 w-4 shrink-0" />
-                <span>contato@dimensionalcontabil.com.br</span>
+                <span>Email@</span>
               </a>
 
               <div className="flex items-start gap-3">

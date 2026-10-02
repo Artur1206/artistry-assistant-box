@@ -256,7 +256,7 @@ export function SocialProof() {
                 {visibleRestaurants.map((restaurant) => (
                   <div
                     key={restaurant.name}
-                    className="flex h-35 items-center justify-center"
+                    className="flex h-40 items-center justify-center"
                   >
                     <img
                       src={restaurant.image}

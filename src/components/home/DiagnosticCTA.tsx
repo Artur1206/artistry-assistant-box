@@ -24,7 +24,6 @@ export function DiagnosticCTA() {
           </p>
         </div>
 
-        {/* O que será analisado */}
         <div className="flex flex-col gap-3">
           <div className="flex items-center gap-3">
             <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary text-xs font-bold text-white">
