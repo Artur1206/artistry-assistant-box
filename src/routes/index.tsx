@@ -7,7 +7,6 @@ import {
   Solutions,
   Method,
   SocialProof,
-  Clients,
   DiagnosticCTA,
   ContentSection,
 } from "@/components/home";
@@ -41,7 +40,6 @@ function HomePage() {
         <Solutions />
         <Method />
         <SocialProof />
-        <Clients />
         <DiagnosticCTA />
         <ContentSection />
       </main>

@@ -19,7 +19,12 @@ export function Header() {
             </a>
           ))}
         </nav>
-        <a href={CTA.href} className="hidden shrink-0 rounded-md bg-primary px-4 py-2 text-xs font-bold uppercase text-primary-foreground hover:bg-primary/90 lg:inline-flex">
+        <a
+          href={CTA.href}
+          target={CTA.target}
+          rel={CTA.rel}
+          className="hidden shrink-0 rounded-md bg-primary px-4 py-2 text-xs font-bold uppercase text-primary-foreground hover:bg-primary/90 lg:inline-flex"
+>
           {CTA.label}
         </a>
         <button className="shrink-0 lg:hidden" onClick={() => setOpen(!open)} aria-label="Abrir menu">
