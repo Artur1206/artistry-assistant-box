@@ -47,7 +47,7 @@ export function SectionPlaceholder({
   align = "center",
   children,
 }: {
-  eyebrow: string;
+  eyebrow?: string;
   title: ReactNode;
   note: string;
   align?: "center" | "left";
@@ -62,9 +62,11 @@ export function SectionPlaceholder({
           : "items-center text-center"
       )}
     >
-      <span className="text-xs font-semibold uppercase tracking-widest text-primary">
-        {eyebrow}
-      </span>
+      {eyebrow && (
+        <span className="text-xs font-semibold uppercase tracking-widest text-primary">
+          {eyebrow}
+        </span>
+      )}
       <h2 className="text-2xl font-bold md:text-3xl lg:text-4xl">
         {title}
       </h2>
