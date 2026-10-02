@@ -8,7 +8,7 @@ export const NAV_ITEMS = [
   { label: "Soluções", href: "#solucoes" },
   { label: "Restaurantes", href: "#desafios" },
   { label: "Conteúdos", href: "#conteudos" },
-  { label: "Casos", href: "#clientes" },
+  { label: "Casos", href: "#diferenciais" },
   { label: "Contato", href: "#diagnostico" },
 ];
 
