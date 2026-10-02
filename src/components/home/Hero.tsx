@@ -20,6 +20,7 @@ export function Hero() {
       </div>
 
       {/* Conteúdo do Hero */}
+      <div className="relative z-10 max-w-[48%]">
       <SectionPlaceholder
         eyebrow="Contabilidade & gestão para restaurantes"
         title={
@@ -54,6 +55,7 @@ export function Hero() {
           </a>
         </div>
       </SectionPlaceholder>
+      </div>
     </Section>
   );
 }

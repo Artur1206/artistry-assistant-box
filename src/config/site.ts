@@ -6,11 +6,11 @@ export const NAV_ITEMS = [
   { label: "Soluções", href: "#solucoes" },
   { label: "Restaurantes", href: "#desafios" },
   { label: "Conteúdos", href: "#conteudos" },
-  { label: "Cases", href: "#clientes" },
+  { label: "Casos", href: "#clientes" },
   { label: "Contato", href: "#diagnostico" },
 ];
 
-export const CTA = { label: "Fale com um especialista", href: "#diagnostico" };
+export const CTA = { label: "Fale com um especialista", href: "https://wa.me/55349?text=Quero%20um%20diagnostico%20do%20meu%20restaurante" };
 
 export const SITE = {
   name: "Dimensional",
