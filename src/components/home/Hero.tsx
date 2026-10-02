@@ -44,7 +44,7 @@ export function Hero() {
                 rel="noopener noreferrer"
                className="w-full rounded-lg bg-primary px-6 py-3 text-center font-semibold sm:w-[280px]"
              >
-            Quero um diagnóstico do meu restaurante
+            QUERO UM DIAGNOSTICO PARA O MEU RESTAURANTE
             </a>
 
             {/* Botão para a próxima seção */}
@@ -52,7 +52,7 @@ export function Hero() {
               href="#desafios"
               className="w-full rounded-lg border border-primary px-6 py-3 text-center font-semibold sm:w-[180px]"
             >
-             Conheça nossa atuação
+             CONHEÇA NOSSA ATUAÇÃO
            </a>
         </div>
       </SectionPlaceholder>

@@ -6,7 +6,7 @@ import { Target } from "lucide-react";
 export const NAV_ITEMS = [
   { label: "Sobre nós", href: "#diferenciais" },
   { label: "Soluções", href: "#solucoes" },
-  { label: "Restaurantes", href: "#desafios" },
+  { label: "Segmentos"},
   { label: "Conteúdos", href: "#conteudos" },
   { label: "Casos", href: "#diferenciais" },
   { label: "Contato", href: "#diagnostico" },

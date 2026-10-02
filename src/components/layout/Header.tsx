@@ -29,7 +29,7 @@ export function Header() {
         {/* Menu desktop */}
         <nav className="hidden items-center gap-6 lg:flex">
           {NAV_ITEMS.map((item) =>
-            item.label === "Restaurantes" ? (
+            item.label === "Segmentos" ? (
               <div key={item.label} className="relative">
                 <button
                   type="button"
