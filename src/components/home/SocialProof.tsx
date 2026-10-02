@@ -261,7 +261,7 @@ export function SocialProof() {
                     <img
                       src={restaurant.image}
                       alt={`Logo ${restaurant.name}`}
-                      className="!h-48 !w auto object contain"
+                      className="h-48 w-auto object contain"
                     />
                   </div>
                 ))}
