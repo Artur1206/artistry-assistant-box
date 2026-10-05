@@ -5,7 +5,7 @@ Reconstruir o site com a composição, hierarquia, cores e densidade do novo pro
 
 ## Páginas e navegação
 - Transformar o cabeçalho em navegação real entre **Sobre nós**, **Soluções**, **Segmentos**, **Conteúdos** e **Contato**.
-- Manter e integrar as páginas de segmentos: **Restaurantes**, **Saúde** e **Comércios**.
+- Criar e integrar as páginas de segmentos: **Alimentação / Food Service**, **Saúde**, **Prestadores de Serviço** e **Comércio**.
 - Criar páginas próprias para **Sobre nós**, **Soluções**, **Conteúdos** e **Contato**, com título, texto inicial e metadados específicos.
 - Usar o menu suspenso de Segmentos no computador e um menu organizado no celular.
 
