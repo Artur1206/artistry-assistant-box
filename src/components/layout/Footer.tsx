@@ -1,142 +1,30 @@
 import { Link } from "@tanstack/react-router";
-import {Mail, MapPin, MessageCircle,} from "lucide-react";
+import { Instagram, Linkedin, Mail, MapPin, MessageCircle, Youtube } from "lucide-react";
+import { SEGMENTS } from "@/config/site";
+import { Brand } from "./Brand";
 import { Container } from "./Container";
 
-const solutions = [
-  "Contabilidade",
-  "Gestão Financeira",
-  "Custos & Precificação",
-  "Tributário",
-  "Processos & Rotinas",
-  "Soluções para Sócios",
-];
-
-const segments = [
-  { label: "Restaurantes", to: "/restaurantes" },
-  { label: "Saúde", to: "/saude" },
-  { label: "Comércios", to: "/comercios" },
-];
-
-const institutional = [
-  "Sobre a Dimensional",
-  "Método Dimensional",
-  "Cases e Depoimentos",
-  "Trabalhe Conosco",
-  "Contato",
-];
+const solutions = ["Contabilidade Completa", "Gestão Financeira", "Inteligência Tributária", "Gestão & Estratégia"];
 
 export function Footer() {
   return (
-    <footer className="bg-surface-dark py-10 text-surface-dark-foreground">
+    <footer className="bg-surface-dark py-12 text-surface-dark-foreground">
       <Container>
-        <div className="grid gap-8 lg:grid-cols-[1.7fr_1fr_1.15fr_1fr_1.45fr]">
-          {/* Logo + descrição */}
+        <div className="grid gap-10 border-b border-surface-dark-foreground/10 pb-10 md:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1.2fr]">
+          <div><Brand /><p className="mt-5 max-w-xs text-xs leading-relaxed text-surface-dark-foreground/60">Contabilidade, gestão financeira e orientação estratégica para empresas que querem decidir com mais clareza.</p></div>
+          <div><h2 className="footer-title">Soluções</h2><nav className="footer-links">{solutions.map((item) => <Link key={item} to="/solucoes">{item}</Link>)}</nav></div>
+          <div><h2 className="footer-title">Segmentos</h2><nav className="footer-links">{SEGMENTS.map((item) => <Link key={item.to} to={item.to}>{item.shortLabel}</Link>)}</nav></div>
           <div>
-            <img
-              src="/images/logo-dimensional.png"
-              alt="Dimensional Contabilidade & Gestão"
-              className="h-12 w-auto object-contain"
-            />
-
-            <p className="mt-4 max-w-xs text-sm leading-relaxed opacity-80">
-              Contabilidade e gestão especializadas em restaurantes.
-              Mais experiência, informação e resultado para o seu negócio.
-            </p>
-          </div>
-
-          {/* Soluções */}
-          <div>
-            <h3 className="text-xs font-bold uppercase tracking-widest text-primary">
-              Soluções
-            </h3>
-
-            <nav className="mt-4 flex flex-col gap-2 text-sm opacity-80">
-              {solutions.map((item) => (
-                <a
-                  key={item}
-                  href="#"
-                  className="transition-colors hover:text-primary"
-                >
-                  {item}
-                </a>
-              ))}
-            </nav>
-          </div>
-            
-            {/* Segmentos */}
-          <div>
-            <h3 className="text-xs font-bold uppercase tracking-widest text-primary">
-              Segmentos
-            </h3>
-
-            <nav className="mt-4 flex flex-col gap-2 text-sm opacity-80">
-             {segments.map((segment) => (
-              <Link
-                key={segment.label}
-                to={segment.to}
-                className="transition-colors hover:text-primary"
-                >
-                  {segment.label}
-              </Link>
-                ))}
-              </nav>
-          </div>
-
-          {/* Institucional */}
-          <div>
-            <h3 className="text-xs font-bold uppercase tracking-widest text-primary">
-              Institucional
-            </h3>
-
-            <nav className="mt-4 flex flex-col gap-2 text-sm opacity-80">
-              {institutional.map((item) => (
-                <a
-                  key={item}
-                  href="#"
-                  className="transition-colors hover:text-primary"
-                >
-                  {item}
-                </a>
-              ))}
-            </nav>
-          </div>
-
-          {/* Contato */}
-          <div className="border-l border-white/20 pl-6">
-            <h3 className="text-xs font-bold uppercase tracking-widest text-primary">
-              Fale com a gente
-            </h3>
-
-            <div className="mt-4 flex flex-col gap-3 text-sm opacity-80">
-              <a
-                href="https://wa.me/5534999759899"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 transition-colors hover:text-primary"
-              >
-                <MessageCircle className="h-4 w-4 shrink-0" />
-                <span>(34) 9</span>
-              </a>
-
-              <a
-                href="mailto:contato@dimensionalcontabil.com.br"
-                className="flex items-center gap-3 transition-colors hover:text-primary"
-              >
-                <Mail className="h-4 w-4 shrink-0" />
-                <span>Email@</span>
-              </a>
-
-              <div className="flex items-start gap-3">
-                <MapPin className="mt-0.5 h-4 w-4 shrink-0" />
-                <span>
-                  Rua Otavio Borges, 12
-                  <br />
-                  Patos de Minas/MG
-                </span>
-              </div>
+            <h2 className="footer-title">Fale com a Dimensional</h2>
+            <div className="footer-links">
+              <a href="https://wa.me/5534999759899" target="_blank" rel="noopener noreferrer"><MessageCircle /> WhatsApp</a>
+              <a href="mailto:contato@dimensionalcontabil.com.br"><Mail /> E-mail</a>
+              <span><MapPin /> Endereço</span>
             </div>
-            </div>
+            <div className="mt-5 flex gap-4 text-primary"><Instagram /><Youtube /><Linkedin /></div>
           </div>
+        </div>
+        <p className="pt-5 text-center text-[10px] text-surface-dark-foreground/45">Fotos ilustrativas. Depoimentos, avaliações e contatos serão preenchidos com dados reais.</p>
       </Container>
     </footer>
   );

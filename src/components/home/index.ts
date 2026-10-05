@@ -1,7 +1,7 @@
-export { Hero } from "./Hero";
-export { RestaurantChallenges } from "./RestaurantChallenges";
-export { Solutions } from "./Solutions";
-export { Method } from "./Method";
-export { SocialProof } from "./SocialProof";
-export { DiagnosticCTA } from "./DiagnosticCTA";
-export { ContentSection } from "./ContentSection";
+export { InstitutionalHero } from "./InstitutionalHero";
+export { FoodServiceBanner } from "./FoodServiceBanner";
+export { BusinessSegments } from "./BusinessSegments";
+export { ConnectedSolutions } from "./ConnectedSolutions";
+export { ExperienceAndTrust } from "./ExperienceAndTrust";
+export { KnowledgeHub } from "./KnowledgeHub";
+export { FinalCall } from "./FinalCall";

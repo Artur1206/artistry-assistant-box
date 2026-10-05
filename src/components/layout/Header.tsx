@@ -1,153 +1,83 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { CTA, NAV_ITEMS, SEGMENTS } from "@/config/site";
+import { Brand } from "./Brand";
 import { Container } from "./Container";
-import { CTA, NAV_ITEMS, SITE } from "@/config/site";
-
-const SEGMENTS = [
-  { label: "Restaurantes", to: "/restaurantes" },
-  { label: "Saúde", to: "/saude" },
-  { label: "Comércios", to: "/comercios" },
-] as const;
 
 export function Header() {
-  const [open, setOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const [segmentsOpen, setSegmentsOpen] = useState(false);
 
+  const closeMenus = () => {
+    setMenuOpen(false);
+    setSegmentsOpen(false);
+  };
+
   return (
-    <header className="sticky top-0 z-50 bg-surface-dark/95 text-surface-dark-foreground backdrop-blur">
-      <Container className="flex h-16 items-center justify-between gap-4">
-        <a href="#" className="flex min-w-0 flex-col leading-none">
-          <span className="truncate text-lg font-extrabold uppercase tracking-wide">
-            {SITE.name}
-          </span>
-          <span className="truncate text-[10px] uppercase tracking-widest opacity-70">
-            {SITE.tagline}
-          </span>
-        </a>
+    <header className="sticky top-0 z-50 border-b border-surface-dark-foreground/10 bg-surface-dark text-surface-dark-foreground">
+      <Container className="grid h-16 grid-cols-[minmax(0,1fr)_auto] items-center gap-4 lg:flex">
+        <Brand />
 
-        {/* Menu desktop */}
-        <nav className="hidden items-center gap-6 lg:flex">
+        <nav className="ml-auto hidden items-center gap-6 lg:flex" aria-label="Navegação principal">
           {NAV_ITEMS.map((item) =>
-            item.label === "Segmentos" ? (
-              <div key={item.label} className="relative">
-                <button
-                  type="button"
-                  onClick={() => setSegmentsOpen(!segmentsOpen)}
-                  className="flex items-center gap-1 text-xs font-semibold uppercase hover:text-accent"
-                >
-                  Segmentos
-                  <ChevronDown
-                    className={`h-3.5 w-3.5 transition-transform ${
-                      segmentsOpen ? "rotate-180" : ""
-                    }`}
-                  />
-                </button>
-
-                {segmentsOpen && (
-                  <div className="absolute left-0 top-full mt-3 w-48 rounded-md border border-surface-dark-foreground/10 bg-surface-dark py-2 shadow-lg">
-                    {SEGMENTS.map((segment) => (
-                      <Link
-                        key={segment.label}
-                        to={segment.to}
-                        onClick={() => setSegmentsOpen(false)}
-                        className="block px-4 py-3 text-xs font-semibold uppercase transition-colors hover:bg-primary hover:text-primary-foreground"
-                      >
-                        {segment.label}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ) : (
-              <a
-                key={item.label}
-                href={item.href}
-                className="text-xs font-semibold uppercase hover:text-accent"
-              >
+            item.to ? (
+              <Link key={item.label} to={item.to} className="text-xs font-medium transition-colors hover:text-primary" activeProps={{ className: "text-primary" }}>
                 {item.label}
-              </a>
-            )
+              </Link>
+            ) : (
+              <div key={item.label} className="group relative">
+                <button type="button" className="flex items-center gap-1 text-xs font-medium transition-colors hover:text-primary" aria-haspopup="true">
+                  {item.label}<ChevronDown className="h-3 w-3" />
+                </button>
+                <div className="invisible absolute left-0 top-full w-56 translate-y-1 border border-border bg-background py-1 text-foreground opacity-0 shadow-lg transition-all group-hover:visible group-hover:translate-y-3 group-hover:opacity-100">
+                  {SEGMENTS.map((segment) => (
+                    <Link key={segment.to} to={segment.to} className="block px-4 py-2.5 text-xs hover:bg-muted hover:text-primary">
+                      {segment.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            ),
           )}
         </nav>
 
-        {/* CTA */}
-        <a
-          href={CTA.href}
-          target={CTA.target}
-          rel={CTA.rel}
-          className="hidden shrink-0 rounded-md bg-primary px-4 py-2 text-xs font-bold uppercase text-primary-foreground hover:bg-primary/90 lg:inline-flex"
-        >
-          {CTA.label}
-        </a>
+        <Button asChild size="sm" className="ml-4 hidden lg:inline-flex">
+          <Link to={CTA.to}>{CTA.label}</Link>
+        </Button>
 
-        {/* Menu mobile */}
-        <button
-          type="button"
-          className="shrink-0 lg:hidden"
-          onClick={() => setOpen(!open)}
-          aria-label="Abrir menu"
-        >
-          {open ? <X /> : <Menu />}
-        </button>
+        <Button variant="ghost" size="icon" className="text-surface-dark-foreground hover:bg-surface-dark-foreground/10 hover:text-primary lg:hidden" onClick={() => setMenuOpen((current) => !current)} aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}>
+          {menuOpen ? <X /> : <Menu />}
+        </Button>
       </Container>
 
-      {open && (
-        <nav className="border-t border-surface-dark-foreground/10 lg:hidden">
-          <Container className="flex flex-col gap-3 py-4">
+      {menuOpen && (
+        <nav className="border-t border-surface-dark-foreground/10 lg:hidden" aria-label="Navegação móvel">
+          <Container className="py-4">
             {NAV_ITEMS.map((item) =>
-              item.label === "Restaurantes" ? (
-                <div key={item.label}>
-                  <button
-                    type="button"
-                    onClick={() => setSegmentsOpen(!segmentsOpen)}
-                    className="flex w-full items-center justify-between py-1 text-sm font-semibold uppercase"
-                  >
-                    <span>Segmentos</span>
-                    <ChevronDown
-                      className={`h-4 w-4 transition-transform ${
-                        segmentsOpen ? "rotate-180" : ""
-                      }`}
-                    />
+              item.to ? (
+                <Link key={item.label} to={item.to} onClick={closeMenus} className="block border-b border-surface-dark-foreground/10 py-3 text-sm font-medium">
+                  {item.label}
+                </Link>
+              ) : (
+                <div key={item.label} className="border-b border-surface-dark-foreground/10">
+                  <button type="button" className="flex w-full items-center justify-between py-3 text-sm font-medium" onClick={() => setSegmentsOpen((current) => !current)}>
+                    {item.label}<ChevronDown className={`h-4 w-4 transition-transform ${segmentsOpen ? "rotate-180" : ""}`} />
                   </button>
-
                   {segmentsOpen && (
-                    <div className="mt-2 flex flex-col gap-1 border-l border-primary/40 pl-4">
+                    <div className="border-l border-primary pb-2 pl-4">
                       {SEGMENTS.map((segment) => (
-                        <Link
-                          key={segment.label}
-                          to={segment.to}
-                          onClick={() => {
-                            setOpen(false);
-                            setSegmentsOpen(false);
-                          }}
-                          className="py-2 text-sm font-semibold uppercase opacity-80 hover:text-primary"
-                        >
+                        <Link key={segment.to} to={segment.to} onClick={closeMenus} className="block py-2 text-sm text-surface-dark-foreground/75">
                           {segment.label}
                         </Link>
                       ))}
                     </div>
                   )}
                 </div>
-              ) : (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  onClick={() => setOpen(false)}
-                  className="text-sm font-semibold uppercase"
-                >
-                  {item.label}
-                </a>
-              )
+              ),
             )}
-
-            <a
-              href={CTA.href}
-              onClick={() => setOpen(false)}
-              className="mt-2 rounded-md bg-primary px-4 py-3 text-center text-xs font-bold uppercase text-primary-foreground"
-            >
-              {CTA.label}
-            </a>
+            <Button asChild className="mt-4 w-full"><Link to={CTA.to} onClick={closeMenus}>{CTA.label}</Link></Button>
           </Container>
         </nav>
       )}
