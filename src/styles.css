@@ -61,33 +61,37 @@
   --color-sidebar-ring: var(--sidebar-ring);
   --color-surface-dark: var(--surface-dark);
   --color-surface-dark-foreground: var(--surface-dark-foreground);
-  --font-sans: "Sans-serif moderna", ui-sans-serif, system-ui, sans-serif;
+  --color-placeholder: var(--placeholder);
+  --color-placeholder-foreground: var(--placeholder-foreground);
+  --font-sans: "Montserrat", ui-sans-serif, system-ui, sans-serif;
 }
 
 :root {
 
-  --radius: 0.5rem;
-  --background: oklch(0.985 0.003 150);
-  --foreground: oklch(0.2 0.02 160);
+  --radius: 0.25rem;
+  --background: oklch(0.99 0.003 150);
+  --foreground: oklch(0.16 0.025 165);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.2 0.02 160);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.2 0.02 160);
-  --primary: oklch(0.55 0.15 150);
+  --primary: oklch(0.59 0.16 158);
   --primary-foreground: oklch(0.99 0 0);
   --secondary: oklch(0.95 0.02 150);
   --secondary-foreground: oklch(0.25 0.05 160);
-  --muted: oklch(0.95 0.008 150);
+  --muted: oklch(0.96 0.007 165);
   --muted-foreground: oklch(0.48 0.02 160);
-  --accent: oklch(0.72 0.17 145);
+  --accent: oklch(0.68 0.15 157);
   --accent-foreground: oklch(0.18 0.04 160);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.99 0 0);
   --border: oklch(0.9 0.01 150);
   --input: oklch(0.9 0.01 150);
   --ring: oklch(0.55 0.15 150);
-  --surface-dark: oklch(0.2 0.04 160);
+  --surface-dark: oklch(0.17 0.035 168);
   --surface-dark-foreground: oklch(0.97 0.005 150);
+  --placeholder: oklch(0.91 0.01 160);
+  --placeholder-foreground: oklch(0.52 0.018 165);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -146,7 +150,19 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    letter-spacing: 0;
   }
+
+  h1, h2, h3, p { letter-spacing: 0; }
 }
 
 html { scroll-behavior: smooth; }
+
+@layer components {
+  .section-kicker { @apply text-[10px] font-bold uppercase tracking-[0.16em] text-primary; }
+  .footer-title { @apply text-xs font-bold text-primary; }
+  .footer-links { @apply mt-4 flex flex-col gap-2 text-xs text-surface-dark-foreground/65; }
+  .footer-links a, .footer-links span { @apply flex items-center gap-2 transition-colors; }
+  .footer-links a:hover { @apply text-primary; }
+  .footer-links svg { @apply h-3.5 w-3.5 shrink-0; }
+}
